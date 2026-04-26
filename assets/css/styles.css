@@ -21,58 +21,91 @@ input, select, button {
 }
 
 button {
-  background: #333;
+  background: black;
   color: white;
   cursor: pointer;
 }
 
+/* TIMELINE CONTAINER */
 .timeline-container {
   position: relative;
   overflow-x: auto;
-  white-space: nowrap;
-  padding: 60px 20px;
+  padding: 100px 20px;
+  height: 320px;
 }
 
+/* WRAPPER */
+.timeline-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* THE LINE (NOW VERY VISIBLE) */
 .timeline-line {
   position: absolute;
   top: 50%;
   left: 0;
-  height: 4px;
-  width: 200%;
+  height: 6px;
   background: black;
   transform: translateY(-50%);
+  border-radius: 3px;
+  z-index: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
+/* TIMELINE ROW */
 #timeline {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* EACH GAME CARD */
+.card {
+  position: relative;
+  margin: 0 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.card {
-  position: relative;
-  margin: 0 40px;
-  text-align: center;
+/* DOT ON THE LINE */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
+/* GAME IMAGE */
 .card img {
   width: 120px;
   height: 160px;
   object-fit: cover;
   border-radius: 10px;
   border: 4px solid white;
+  margin-bottom: 40px; /* pushes image above line */
 }
 
+/* TEXT */
 .date {
-  margin-top: 10px;
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .console {
   font-size: 12px;
-  margin-top: 4px;
 }
 
-/* console colors */
+/* CONSOLE COLORS */
 .playstation img { border-color: #003791; }
 .xbox img { border-color: #107C10; }
 .nintendo img { border-color: #e60012; }
