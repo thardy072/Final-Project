@@ -1,16 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Website Template</title>
-	<link rel="stylesheet" href="./assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Gaming Journey Map</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h1>🎮 Your Gaming Journey</h1>
 
-	<h1>Website Template</h1>
-	<p>Fork and use this template repo (a.k.a. "boilerplate") for any web project</p>
-	<img src="assets/img/cat.jpg" alt="">
+  <div class="form">
+    <input type="text" id="game" placeholder="Game title" />
+    <input type="text" id="year" placeholder="Year or age" />
+    <select id="mood">
+      <option value="fun">Fun</option>
+      <option value="challenging">Challenging</option>
+      <option value="nostalgic">Nostalgic</option>
+      <option value="competitive">Competitive</option>
+    </select>
+    <button onclick="addGame()">Add to Journey</button>
+  </div>
 
-	<script src="./assets/js/main.js"></script>
+  <div id="timeline"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
