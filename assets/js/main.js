@@ -10,7 +10,7 @@ function addGame() {
 
   journey.push({ game, date, image, consoleType });
 
-  // sort by date so timeline flows correctly
+  // sort by date
   journey.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   renderTimeline();
@@ -18,6 +18,8 @@ function addGame() {
 
 function renderTimeline() {
   const timeline = document.getElementById("timeline");
+  const line = document.getElementById("line");
+
   timeline.innerHTML = "";
 
   journey.forEach(item => {
@@ -32,4 +34,9 @@ function renderTimeline() {
 
     timeline.appendChild(card);
   });
+
+  // 🔥 Make the line match full width
+  setTimeout(() => {
+    line.style.width = timeline.scrollWidth + "px";
+  }, 0);
 }
