@@ -2,18 +2,18 @@ let journey = [];
 
 function addGame() {
   const game = document.getElementById("game").value;
-  const year = document.getElementById("year").value;
-  const mood = document.getElementById("mood").value;
+  const date = document.getElementById("date").value;
+  const image = document.getElementById("image").value;
+  const consoleType = document.getElementById("console").value;
 
-  if (!game || !year) return;
+  if (!game || !date || !image) return;
 
-  const entry = { game, year, mood };
-  journey.push(entry);
+  journey.push({ game, date, image, consoleType });
+
+  // sort by date so timeline flows correctly
+  journey.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   renderTimeline();
-
-  document.getElementById("game").value = "";
-  document.getElementById("year").value = "";
 }
 
 function renderTimeline() {
@@ -21,13 +21,15 @@ function renderTimeline() {
   timeline.innerHTML = "";
 
   journey.forEach(item => {
-    const div = document.createElement("div");
-    div.className = `entry ${item.mood}`;
-    div.innerHTML = `
-      <h3>${item.game}</h3>
-      <p>${item.year}</p>
-      <small>${item.mood}</small>
+    const card = document.createElement("div");
+    card.className = `card ${item.consoleType}`;
+
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.game}" />
+      <div class="date">${item.date}</div>
+      <div class="console">${item.consoleType}</div>
     `;
-    timeline.appendChild(div);
+
+    timeline.appendChild(card);
   });
 }
