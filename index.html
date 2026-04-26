@@ -2,25 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gaming Journey Map</title>
+  <title>Gaming Journey</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎮 Your Gaming Journey</h1>
+
+  <h1>🎮 My Gaming Journey</h1>
 
   <div class="form">
     <input type="text" id="game" placeholder="Game title" />
-    <input type="text" id="year" placeholder="Year or age" />
-    <select id="mood">
-      <option value="fun">Fun</option>
-      <option value="challenging">Challenging</option>
-      <option value="nostalgic">Nostalgic</option>
-      <option value="competitive">Competitive</option>
+    <input type="date" id="date" />
+    <input type="text" id="image" placeholder="Game cover image URL" />
+    <select id="console">
+      <option value="playstation">PlayStation</option>
+      <option value="xbox">Xbox</option>
+      <option value="nintendo">Nintendo</option>
+      <option value="pc">PC</option>
     </select>
-    <button onclick="addGame()">Add to Journey</button>
+    <button onclick="addGame()">Add</button>
   </div>
 
-  <div id="timeline"></div>
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+    <div id="timeline"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
